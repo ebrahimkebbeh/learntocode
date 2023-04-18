@@ -1,0 +1,22 @@
+.photo {
+    width:45vw;
+    height: 45vw;
+    border-radius: 8vw;
+}
+.photo:hover{
+    border-radius: 0vw;
+    width:60vw;
+    height: 60vw;
+    position; a;
+    left:50%;
+    z-index: index 1;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    height: 100;
+    background-color:blue;
+    color: red;
+}
+
