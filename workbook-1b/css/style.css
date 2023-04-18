@@ -1,7 +1,7 @@
 
  h1 {
 color: purple;
-
+font-size: 60px;
 }
 
 th{ 
@@ -13,12 +13,31 @@ td {
 nav {
     text-align: center;
     font-size: 20px;
+    margin-bottom:30;
+    border-radius: 10vw;
     
 }
 table{
    margin: auto;
+   border-collapse: collapse;
+   
 }
 p{
     margin: auto;
     align-items: center;
+    font: 1.2em bold;
+}
+nav a{
+    color: black;
+    text-decoration: none;
+    background-color: silver;
+    display: inline-block;
+    border: solid;
+    padding: 5px;
+}
+header {
+    background-attachment:url("image/nyc4.jpeg");
+}
+ul {
+    text-align: center;
 }
