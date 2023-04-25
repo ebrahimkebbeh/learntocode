@@ -5,21 +5,26 @@
 }
 .navbar{
     display: flex;
-    alight-items: center;
-    padding: 20px:
+    align-items: center;
+    padding: 0px;
+    width: 100%;
 }
 nav{
-    flex: flex; inline-block;
-    text-align: right;
+    background: black;
+    display:block;
+    width: 100%;
+    vertical-align: top;
 }
 nav ul li{
     display: inline-block;
     margin-right: 20px;
     text-align: right;
+    vertical-align:middle;
 }
 a{
     text-decoration:none;
-    color: #555;
+    color: white;
+    margin-right: 
 
 
 }
@@ -37,6 +42,7 @@ p{
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
+    c
 
 
 }
@@ -47,14 +53,26 @@ p{
 .col-2 img{
     max-width: 100%;
     padding: 50px 0;
+    
 }
 .col-2 h1{
     font-size: 50px;
     line-height: 60px;
     margin: 25px 0;
-    
+    right: 10vw;
+    color: rgb(0, 0, 0);
 }
-h1{
-    
-    left 
+.col-2 p{
+    color: rgb(8, 7, 7);
+    /* color: rgb(101, 18, 18);
+    margin; */
+}
+.col-2 li{
+    color: black;
+}
+body{
+    background-image: url(images/image3.jpeg);
+    background-repeat: no-repeat;
+    background-position: right;
+   
 }

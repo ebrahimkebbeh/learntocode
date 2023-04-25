@@ -4,10 +4,10 @@
 }
 
 body{
-    background-image:url(images/image5.png);
-    background-position-x: 33vw;
+    background-image:url(images/image7.avif);
+    /* background-position-x: 33vw;
     background-repeat: no-repeat;
-    background-color:darkturquoise
+    background-color: */
 
 }
 h1{
@@ -21,15 +21,16 @@ h1{
     
 }
 .login{
-    position: absolute;
+    /* position: absolute; */
     top: 40px;
     left: calc(50% - 150px);
-    /* transform: translate(-50% -50%); */
+    transform: translate(-50% -50%); */
     background:transparent 100%;
     width: 300px;
     padding: 50px;
     border-radius: 10px;
     box-shadow: 7px 7px 50px #000;
+    color: white;
 }
 form {
     position: relative;
@@ -64,6 +65,11 @@ header{
     padding: 10px 10%;
 }
 nav a{
-    margin: 15;
-}
+    margin: 20;
+    display: inline-block;
+    color: red;
+    margin-right: 20;
+    
+    
+}    
 
