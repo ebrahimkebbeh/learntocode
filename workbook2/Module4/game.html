@@ -1,0 +1,33 @@
+<style>
+.sprite {
+    position: absolute;
+    left: 0em;
+    top: 10em;
+}
+#treasure{
+    color: goldenrod;
+}
+</style>
+<body>
+<div id="output">Click Run until the hero reaches the treasure.</div>
+<div id="hero" class="sprite">H</div>
+<div id="treasure" class="sprite">T</div>
+<button id="run">Run</button>
+</body>
+<script>
+    const treasurePosition = 10;
+    let heroPosition = 0;
+    treasure.style.left = `${treasurePosition}em`;
+    function onClickRun(){
+        heroPosition++; //up by one
+        hero.style.left = `${heroPosition}em`;
+        output.innerHTML = `SCORE: ${heroPosition}`;
+        if(heroPosition >= treasurePosition){
+            output.innerHTML = "WINNER!!!";
+        }
+    }
+    run.onclick = onClickRun;
+//What do most games have?
+// Directions - controls (run/jump) options. Score/Points/Money
+// Identity like a login
+</script>
