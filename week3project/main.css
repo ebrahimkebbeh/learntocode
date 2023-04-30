@@ -1,0 +1,9 @@
+.container{
+    font-family: "Roboto", "sans-serif";
+    width: 600px;
+    margin: 24px auto;
+    background: #fff;
+   box-shadow: 0 12px 50px -11px;
+    border-radius: 8px;
+    color: #14213d;
+}
