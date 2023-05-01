@@ -10,3 +10,5 @@ function whyImHere(){
 function favortPlace(){
     console("my favorite place to vist is the Gambia because thats where im from, and also i have families there that I have seen for long period")
 }
+
+whyImHere();
