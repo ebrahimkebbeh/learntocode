@@ -1,3 +1,5 @@
+//passing parameters to function
+
 function getFederalTax(gross,code){
     let rate = 0.23;
 if(code === 1){
