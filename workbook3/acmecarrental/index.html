@@ -15,7 +15,7 @@
         <fieldset>
             <legend>Options</legend>
             <label>
-                <input id="tag" type="checkbox">Electronic toll tag ($3.)
+                <input id="tag" type="checkbox">Electronic toll tag ($3.95/days)
             </label><br>
             <label>
                 <input id="gps" type="checkbox"> Gps ($2.95/day)
@@ -27,13 +27,16 @@
         <fieldset>
             <Legend>under 25</Legend>
             <lable>
-                <input name="under25" value="no" type="radio">yes
+                <input name="under25" value="yes" type="radio">yes
             </lable>
+            <label>
+                <input name="under25" value="no" type="radio">no
+            </label>
         </fieldset>
         <p>
-            <button>estimate total cost</button>
+            <button id="estimate">estimate total cost</button>
             <pre id="output">click on the button above.</pre>
         </p>
         
     </body>
-</html>
+</html> 
