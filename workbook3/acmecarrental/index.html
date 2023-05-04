@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>kb</title>
+    <script src="rate.js"></script>
+    <script src="main.js"></script>
+    </head>
+    <body>
+        <h1>KB car rental</h1>
+        pickup Date: <input type="date" id="days">
+        number of Days: <input type="data" id="days">
+        <fieldset>
+            <legend>Options</legend>
+            <label>
+                <input id="tag" type="checkbox">Electronic toll tag ($3.)
+            </label><br>
+            <label>
+                <input id="gps" type="checkbox"> Gps ($2.95/day)
+            </label><br>
+            <label>
+                <input id="roadside" type="checkbox"> Roadside Assitance ($2.99/day)
+            </label>
+        </fieldset>
+        <fieldset>
+            <Legend>under 25</Legend>
+            <lable>
+                <input name="under25" value="no" type="radio">yes
+            </lable>
+        </fieldset>
+        <p>
+            <button>estimate total cost</button>
+            <pre id="output">click on the button above.</pre>
+        </p>
+        
+    </body>
+</html>
