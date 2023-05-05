@@ -13,12 +13,14 @@ vertical-align:top;
 background-color: rgb(0, 0, 0);
 }
 a{
-    text-align: right;
+    text-align: center;
     color: black;
     display: block;
     text-decoration: none; 
     font-weight:bold;
     text-transform: uppercase;
+    margin: auto;
+   
 }
 .product-img{
     background: var(--white-light);
@@ -51,6 +53,8 @@ img{
     font-size: 2.5rem;
     padding: 0.6rem 0;
     text-transform: capitalize;
+    background: blue;
+    color: aliceblue;
 }
 .md-title{
     font-size: 2rem;
@@ -76,7 +80,7 @@ img{
 .product{
     text-align: center;
     margin: rem;
-    padding: 3.2rem;
+    /* padding: 3.2rem; */
     position: relative;
 
 }
@@ -131,7 +135,7 @@ nav{
     background: black;
     display:block;
     width: 100%;
-    vertical-align: top;
+    /* vertical-align: top; */
     display: inline-block;
 }
 nav ul li{
@@ -147,9 +151,6 @@ nav ul li{
     align-items: center;
     /* padding: 0px; */
     width: 100%;
-}
-.container{
-    
 }
 .lg-title{
     text-align: center;
@@ -180,5 +181,10 @@ botton{
     opacity: 1;
     transition: opacity 0,6s ease;
 }
-
+/* @media screen and (min-width: 992px){
+    .products-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */
   

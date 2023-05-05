@@ -15,7 +15,7 @@ function iceCreamPrice(scoopcount, icecup,sprinkles, whippedcream, hotfudge, che
         total: total
     }
 }
-function dollar(amount){
+function dollars(amount){
     return`$${amount.toFixed(2)}`;
 }
 

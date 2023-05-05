@@ -1,0 +1,26 @@
+body{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+background: rgb(139, 102, 174);
+text-align: center;
+}
+table{
+    text-align: left;
+    margin: auto;
+}
+#toppings{
+    text-align: left;
+    width: fit-content;
+    margin: auto;
+
+
+}
+label{
+    margin: 1em;
+    padding: 1em;
+}
+input{
+    margin: 1em;
+}
+legend{
+    text-align: center;
+}

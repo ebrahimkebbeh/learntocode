@@ -7,35 +7,41 @@
     <title>ACME</title>
     <script src="script.js"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2>Ice Cream Space</h2>
-    Number of scoop <input type="number">
+    Number of scoop <input type="number" name="choice" value="1" id="scoops" min="1" max="4">
     <label><br>
-        <input type="radio">Cone
+        <input type="radio" name="choice" id="cone">cone
     </label>
     <label>
-        <input type="radio">Cup
+        <input type="radio" name="choice" id="cup" checked>cup
     </label>
-    <fieldset>
+    <fieldset id="toppings">
         <legend>Toppings</legend>
         <label>
-            <input type="checkbox">Sprinkles($.50)
+            <input type="checkbox" id="sprinkles">Sprinkles($.50)
             
         </label><br>
         <label>
-            <input type="checkbox">Whipped Cream($0.25)
+            <input type="checkbox" id="whipped_cream">Whipped Cream($0.25)
         </label><br>
         <label>
-            <input type="checkbox">Hot Fudge($1.25)
+            <input type="checkbox" id="hot_fudge">Hot Fudge($1.25)
         </label><br>
         <label>
-            <input type="checkbox">Cherry($0.25)
+            <input type="checkbox" id="cherry">Cherry($0.25)
         </label>
         
     </fieldset>
     <p>
-        <button>Sumbit Order</button>
+        <button id="order">Sumbit Order</button>
     </p>
+    <table>
+        <tr><th>base price:</th><td id="price">0.00</td></tr>
+        <tr><th>tax:</th><td id="tax">0.00</td></tr>
+        <tr><th>total Due:</th><td id="total">0.00</td></tr>
+    </table>
 </body>
 </html>
