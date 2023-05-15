@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Activities</title>
+        <link rel="stylesheet" href="shared.css">
+        <script src="data/ActivitiesPage/activities.js"></script>
+        <script src="shared.js"></script>
+    </head>
+    <body>
+        <header>
+            <img src="" alt="">
+            <nav></nav>
+        </header>
+        <select name="" id="">
+        <option value=""></option>
+        
+        <select name="" id=""></select>
+        <div>
+            <h4>order tickets</h4>
+            <form action="">
+                <input id="tickets" name="tickets" placeholder="number of tickets needed">
+
+                <input id="card" name="card" placeholder="credit card number" type="number">
+
+                <input id="email" name="email" placeholder="email address" type="email">
+
+                <input type="reset" value="clear form">
+            </form>
+            <button id="purchase"> Purchase </button>
+            <p id="message"></p>
+        </div>
+    </body>
+    <script>
+        const selectCategories = document.getElementById("categories")
+const selectActivities = document.getElementById("activities")
+const details = document.getElementById("details")
+const order = document.getElementById("order")
+const purchase = document.getElementById("purchase")
+const message = document.getElementById("message")
+
+for(let i = 0; i < categories.length; i++){
+    let category = categories[i];
+    // console.log(category);
+    const option = document.createElement("option");
+    option.innerHTML = category
+    option.value = category
+    selectCategories.appendChild(option)
+}
+
+selectCategories.addEventListener("change", ()=>{
+    const category = selectCategories.selectedOptions[0].value
+    console.log(category)
+    details.innerHTML = "";
+    message.innerHTML = "";
+
+    order.style.display = "none"
+    selectActivities.innerHTML = ""; //clear old options out
+    // let matches = 0;
+    for(let i = 0; i < activities.length; i++ ){
+        const activity = activities[i];
+        if(activity.category == category){
+            // matches++;
+            console.log(activity.name)
+            let option = document.createElement("option");
+            option.innerHTML = activity.name
+            option.value = activity.id
+            selectActivities.appendChild(option);
+        }  
+    }
+    // selectActivities.setAttribute("size", matches);
+    selectActivities.setAttribute("size", selectActivities.length);
+
+        });
+
+let activity;
+
+selectActivities.addEventListener("change", ()=>{
+    console.log("activity changed")
+    details.innerHTML = "";
+    message.innerHTML = "";
+
+    const id = selectActivities.selectedOptions[0].value
+    for(let i = 0; i < activities.length; i++ ){
+        activity = activities[i];
+        if(activity.id == id){
+details.innerHTML = `
+<h4>Description:</h4> ${activity.description} <br>
+<h4>Location:</h4> ${activity.location}<br>
+<h4>Price:</h4> ${activity.price} <br>
+`
+            if(activity.price > 0){
+                order.style.display = "block"
+            }else{
+                order.style.display = "none"
+            }
+            break; //exit loop when match is found
+        }
+    }
+});
+
+purchase.addEventListener("click", ()=>{
+    const tickets = Number(document.getElementById("tickets").value);
+
+// When the user clicks the purchase button, a message will appear below it stating something to the effect:
+// "Your credit card has been charged $(amount) for (number-of- tickets) to (adventure-name). A confirmation email has been sent to (email)."
+    message.innerHTML = `
+Your credit card has been charged $${activity.price * tickets},
+ for ${tickets} tickets,
+  to ${activity.name}. 
+  A confirmation email has been sent to ${document.getElementById("email").value}.
+    `;
+})
+    </script>
+</html>
