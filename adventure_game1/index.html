@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <button id="up">^</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="left">&lt;</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="right">&gt;</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="down">v</button>
+            </td>
+        </tr>
+    </table>
+    <div id="map"></div>
+</body>
+<style>
+    body{
+        background-color: aqua;
+        color: black;
+
+    }
+</style>
+<script>
+    let sprites = [
+        {
+            name: 'hero',
+            attributes: [],
+            position:{
+                x: 10,
+                y: 10
+            },
+            symbol: "@",
+            scores: 3
+        },
+        {
+            name: 'treasure',
+            attributes: [],
+            position:{
+                x: 5,
+                y: 5
+            },
+            symbol: "$",
+            point: 100
+        },
+        {name: 'wall', attributes: [], position: {x: 20, y: 16 }, symbol: '#', symbol: "#"},
+        {name: 'wall', attributes: [], position: {x: 20, y: 13 }, symbol: '#', symbol: "#"},
+        {name: 'wall', attributes: [], position: {x: 20, y: 9 }, symbol: '#', symbol: "#"},
+        {name: 'wall', attributes: [], position: {x: 20, y: 7 }, symbol: '#', symbol: "#"},
+        {name: 'wall', attributes: [], position: {x: 20, y: 3 }, symbol: '#', symbol: "#"},
+        {name: 'wall', attributes: [], position: {x: 20, y: 20 }, symbol: '#', symbol: "#"},
+        {name: 'wall', attributes: [], position: {x: 20, y: 23 }, symbol: '#', symbol: "#"},
+        {name: 'wall', attributes: [], position: {x: 20, y: 27 }, symbol: '#', symbol: "#"},
+        {name: 'floor', attributes: [], position: {x: 20, y: 29 }, symbol: '#', symbol: "#"}
+    ]
+     function render(){
+    //     map.innerHTML
+    sprites.forEach(sprite=>{
+        div = document.createElement('div');
+        div.style.position = 'absolute';
+        div.style.left = sprite.position.x + 'rem';
+        div.style.top = sprite.position.y + 'rem';
+        div.innerHTML = sprite.symbol;
+        document.body.appendChild(div)
+    })
+}
+    function arrowClick(e){
+        console.log(e.target.id)
+        id = e.target.id;
+        if('up' == id){
+            sprites[0].position.y--;
+        }else if('down'==id){
+            sprites[0].position.y++;
+        }else if('left'==id){
+            sprites[0].position.x--;
+        }else if('right'==id){
+            sprites[0].position.x++;
+        }
+        render();
+    }
+
+    up.addEventListener('click', arrowClick)
+    down.addEventListener('click', arrowClick)
+    left.addEventListener('click', arrowClick)
+    right.addEventListener('click', arrowClick)
+
+     render();
+
+</script>
