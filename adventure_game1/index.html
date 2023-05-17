@@ -5,24 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 </head>
+<style>
+    body{
+        background-color: aqua;
+        color: black;
+    }
+    #arrows{
+        position: fixed; bottom: 1rem; right: 1rem;
+    }
+    #score{ position: fixed; bottom: 1rem; left: 1rem;}
+</style>
 <body>
-    <table>
+    <div id="score">0</div> 
+    <!-- <table id="arrows"></table> -->
+    <table id="arrows" >
         <tr>
             <td>
+                </td>
+                <td>
                 <button id="up">^</button>
+            </td>
+            <td>
+
             </td>
         </tr>
         <tr>
             <td>
                 <button id="left">&lt;</button>
             </td>
-        </tr>
-        <tr>
+            <td>
+
+            </td>
+        <!-- </tr>
+        <tr> -->
             <td>
                 <button id="right">&gt;</button>
             </td>
         </tr>
         <tr>
+            <td>
+
+            </td>
             <td>
                 <button id="down">v</button>
             </td>
@@ -30,14 +53,9 @@
     </table>
     <div id="map"></div>
 </body>
-<style>
-    body{
-        background-color: aqua;
-        color: black;
 
-    }
-</style>
 <script>
+   
     let sprites = [
         {
             name: 'hero',
@@ -47,7 +65,17 @@
                 y: 10
             },
             symbol: "@",
-            scores: 3
+            scores: 0
+        },
+        {
+            name: 'zombie',
+            attributes: [],
+            position:{
+                x: 15,
+                y: 15
+            },
+            symbol: "Z",
+            score: 0
         },
         {
             name: 'treasure',
@@ -59,19 +87,59 @@
             symbol: "$",
             point: 100
         },
-        {name: 'wall', attributes: [], position: {x: 20, y: 16 }, symbol: '#', symbol: "#"},
-        {name: 'wall', attributes: [], position: {x: 20, y: 13 }, symbol: '#', symbol: "#"},
-        {name: 'wall', attributes: [], position: {x: 20, y: 9 }, symbol: '#', symbol: "#"},
-        {name: 'wall', attributes: [], position: {x: 20, y: 7 }, symbol: '#', symbol: "#"},
-        {name: 'wall', attributes: [], position: {x: 20, y: 3 }, symbol: '#', symbol: "#"},
-        {name: 'wall', attributes: [], position: {x: 20, y: 20 }, symbol: '#', symbol: "#"},
-        {name: 'wall', attributes: [], position: {x: 20, y: 23 }, symbol: '#', symbol: "#"},
+        // {name: 'wall', attributes: [], position: {x: 20, y: 16 }, symbol: '#', symbol: "#"},
+        // {name: 'wall', attributes: [], position: {x: 20, y: 13 }, symbol: '#', symbol: "#"},
+        // {name: 'wall', attributes: [], position: {x: 20, y: 9 }, symbol: '#', symbol: "#"},
+        // {name: 'wall', attributes: [], position: {x: 20, y: 7 }, symbol: '#', symbol: "#"},
+        // {name: 'wall', attributes: [], position: {x: 20, y: 3 }, symbol: '#', symbol: "#"},
+        // {name: 'wall', attributes: [], position: {x: 20, y: 20 }, symbol: '#', symbol: "#"},
+        // {name: 'wall', attributes: [], position: {x: 20, y: 23 }, symbol: '#', symbol: "#"},
         {name: 'wall', attributes: [], position: {x: 20, y: 27 }, symbol: '#', symbol: "#"},
         {name: 'floor', attributes: [], position: {x: 20, y: 29 }, symbol: '#', symbol: "#"}
     ]
+    function wall(x, y){
+        return {name: 'wall', position: {x: x, y: y }, symbol: "#"};
+      
+    }
+    function floor(x, y){
+        return {name: 'fall', position: {x: x, y: y }, symbol: "."};
+      
+    }
+    WIDTH = 30
+    HEIGHT = 20
+    for(r=0;r<HEIGHT;r++){
+        for(c=0;c<WIDTH;c++){
+          if(r == 0 || r == HEIGHT - 1 || c ==0 || c == WIDTH - 1){
+              sprites.push(wall(c, r))
+            }else{
+                sprites.push(floor(c, r))
+            }
+        }
+    }
+     function look(position){
+        result = null
+        sprites.forEach(s=>{
+            if(s.position.x == position.x && s.position.y == position.y){
+                if(null == result){
+                result = s;
+             }   
+            }
+        })
+        return result;
+    }
+    function remove(what){
+        result = null
+        sprites.forEach((s,i)=>{
+            if(s == what){
+                sprites.splice(i,i);
+             }   
+        })
+        
+    }
+   
      function render(){
-    //     map.innerHTML
-    sprites.forEach(sprite=>{
+      map.innerHTML = "",   
+       sprites.forEach(sprite=>{
         div = document.createElement('div');
         div.style.position = 'absolute';
         div.style.left = sprite.position.x + 'rem';
@@ -79,21 +147,37 @@
         div.innerHTML = sprite.symbol;
         document.body.appendChild(div)
     })
-}
+    score.innerHTML
+ }
     function arrowClick(e){
         console.log(e.target.id)
         id = e.target.id;
+        destination = {x:current.x, y:current.y}
+
         if('up' == id){
-            sprites[0].position.y--;
+            destination.y--;
+            // sprites[0].position.y--;
         }else if('down'==id){
-            sprites[0].position.y++;
+            destination.y++;
+            // sprites[0].position.y++;
         }else if('left'==id){
-            sprites[0].position.x--;
+            destination.x--;
+            // sprites[0].position.x--;
         }else if('right'==id){
-            sprites[0].position.x++;
+            destination.x++;
+        //     sprites[0].position.x++;  // }
+        }
+        whch = look(destination)
+        if(what == null || what.name == 'floor'){
+            console.log(destination)
+            sprites[0].position = destination;
+        }else if('treasure' == what.name){
+            sprites[0].score += what.points
+            remove(what)
         }
         render();
-    }
+    
+ }
 
     up.addEventListener('click', arrowClick)
     down.addEventListener('click', arrowClick)
