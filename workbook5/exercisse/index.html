@@ -1,0 +1,43 @@
+<style>
+    body{ background: black; color: aliceblue; font-family: sans-serif;}
+</style>
+<body>
+    <select id="image_list"></select>
+    <button id="clear">clear</button>
+    <div id="output">Result will be here.</div>
+</body>
+<script>
+    const images = [
+        {name:'image.bas.jpeg', title:'breaking bad'},
+        {name:'image.got.jpeg', title:'game of throne'},
+        {name:'image.wir.jpeg', title:'the wire'}
+        
+    ];
+    image_list.innerHTML = "<option>Make a selection</option>"
+
+    images.forEach(image=>{
+        let option = document.createElement('option');
+        option.innerHTML = image.title;
+        option.value = image.name;
+        image_list.appendChild(option);
+        // end images for each
+    });
+
+    image_list.addEventListener('change', e=>{
+        if(image_list.selectedindex <=0){
+            return;
+        }
+        // alert(name)
+         let name = image_list.selectedOptions[0].value;
+         let img = document.createElement('img')
+         img.src = 'dynimages/' + name;
+         output.appendChild(img)
+    }); // end on change image list
+
+    clear.addEventListener('click', ()=>{
+        output.innerHTML = "";
+        image_list.selectedindex = 0;
+        //end of clear button
+    })
+
+</script>
