@@ -55,6 +55,8 @@
 </body>
 
 <script>
+
+    let lives = 3
    
     let sprites = [
         {
@@ -75,7 +77,7 @@
                 y: 15
             },
             symbol: "Z",
-            score: 0
+            score: 200
         },
         {
             name: 'treasure',
@@ -142,7 +144,7 @@
         sprites.forEach((sprite,i)=>{
             if("images" == MODE){
                 div = document.createElement("img");
-                div.src = sprite.name + ".png"
+                div.src = 'images/' + sprite.name + ".png"
                 div.style='width:1rem;height:1rem;object-fit:contain;'
                 div.style.zIndex = -i
             }else{
@@ -155,25 +157,32 @@
             map.appendChild(div) //append to map
         })
         score.innerHTML = sprites[0].score
+
+        output = ""
+        for(life=0; life < lives; life++){
+            output += "@"
+        }
+        status.innnerHTML = output
     }
 
    
-     function render(){
-      map.innerHTML = "",   
-       sprites.forEach(sprite=>{
-        div = document.createElement('div');
-        div.style.position = 'absolute';
-        div.style.left = sprite.position.x + 'rem';
-        div.style.top = sprite.position.y + 'rem';
-        div.innerHTML = sprite.symbol;
-        document.body.appendChild(div)
-    })
-    score.innerHTML
- }
+    //  function render(){
+    //   map.innerHTML = "",   
+    //    sprites.forEach(sprite=>{
+    //     div = document.createElement('div');
+    //     div.style.position = 'absolute';
+    //     div.style.left = sprite.position.x + 'rem';
+    //     div.style.top = sprite.position.y + 'rem';
+    //     div.innerHTML = sprite.symbol;
+    //     document.body.appendChild(div)
+    // })
+//     score.innerHTML
+//  }
     function arrowClick(e){
         console.log(e.target.id)
         id = e.target.id;
-        destination = {x:current.x, y:current.y}
+        current = sprites[0].position;
+       let destination = {x:current.x, y:current.y}
 
         if('up' == id){
             destination.y--;
@@ -190,11 +199,20 @@
         }
         whch = look(destination)
         if(what == null || what.name == 'floor'){
-            console.log(destination)
+            // console.log(destination)
             sprites[0].position = destination;
         }else if('treasure' == what.name){
             sprites[0].score += what.points
             remove(what)
+        }else if('zombie' == what.name){
+            zombie.role = math.round(math.random() * 6)
+            hero_role = math.round(math.random() * 6)
+            if(hero_role >= zombie_role){
+                sprites[0].scor += whta.points
+                remove(what)
+            }else{
+                lives -= 1
+            }
         }
         render();
     
