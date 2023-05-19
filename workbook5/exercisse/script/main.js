@@ -3,6 +3,8 @@
 function showimage(path){
     const dialogImage = document.querySelector(".dialog .gigantic")
     dialogImage.src = path;
+
+    document.querySelector(".dialog").classList.remove('hidden')
 }    
 
 document.addEventListener('DOMContentLoaded', ()=>{

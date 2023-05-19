@@ -31,9 +31,13 @@
     <button id="clear">clear</button>
     <div id="output">Result will be here.</div>
 
-    <div class="dialog">
-        <div class="Title"> <button class="close">X</button></div>
-        <img class="gigantic" src="" >
+    <div class="dialog hidden" onclick="document.querySelector('.dialog').classList.add('hidden')">
+        <div class="Title">
+            show image
+             <button class="close" >X</button>        
+             
+    </div>
+    <img class="gigantic" src="" >
     </div>
 
 </body>
