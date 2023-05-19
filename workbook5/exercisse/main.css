@@ -1,0 +1,30 @@
+body{ 
+    background: black; 
+    color: aliceblue; 
+    font-family: sans-serif;}
+
+#list{
+    background-color: aqua;
+    color: black;
+
+}
+
+#list th{
+    color: antiquewhite;
+    background-color: black;
+    width: 100%;
+    /* text-align: center; */
+}
+select, table, button, img{
+    margin: 1rem;
+}
+.thumb{
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+.gigantic{
+    width: 100vw;
+    height: 100vw;
+    object-fit: cover;
+}
