@@ -23,7 +23,13 @@ for(i = 0; i < locationsArray.length; i++){
 function display(park){
     results.innerHTML += `
     
-    <tr><td>${park.LocationName}</td></tr>
+    <tr>
+    <td>${park.LocationName}</td>
+    <td>${park.Address}</td>
+    <td>${park.State}</td>
+    <td>${park.City}</td>
+    <td>${park.Visit}</td>
+    </tr>
     
     `
 }
@@ -45,30 +51,6 @@ select_park.addEventListener('change', list)
 select_location.addEventListener('change', list)
 
 //end of locaation name
-
-// function display(locat){
-//     results.innerHTML += `
-
-//     <tr><td>${locat.Address}</td></tr>
-
-//     `
-// }
-
-// function ress(){
-//     let text = select_park.selectedOptions[1].value
-//     let address = select_location.selectedOptions[1].value
-//     let add = nationalParksArray
-//     if(address != 'any'){
-//         add = add.filter(p => p.City==address)
-//     }
-//     if(text != 'any'){
-//         add = add.filter(p => p.Address.includes(text))
-//     }
-//     results.innerHTML = ""
-//     add.forEach(display)
-// }
-// select_park.addEventListener('change', ress)
-// select_location.addEventListener('change', ress)
 
 
 

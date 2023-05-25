@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <title>national park</title>
+    </head>
+    <header>
+        <h2>website name</h2>
+
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="national.html">national park</a></li>
+            <li><a href="moun.html">mountain</a></li>
+        </ul>
+    </header>
+    <body>
+        <h1>Mountains</h1>
+        <select id="select">
+            <option value="">select a mountain</select></option>
+        </select>
+        <div id="results"></div>
+    </body>
+    <script src="../scripts/mountainData.js"></script>
+    <script>
+        // for(let i = 0; i < mountainsArray; i++){
+        //     let mount = mountainsArray[i];
+        //     let o = document.createElement('option')
+        //     o.text = mount.name
+        //     o.value = mount.name
+        //     select.appendChild(o)
+
+        // }
+        
+        let mount = mountainsArray
+
+        mount.forEach(function(item){
+            let o=document.createElement('option');
+            o.text = item.name;
+            o.value = item.name;
+            select.appendChild(o)
+        });
+        select.addEventListener('change', ()=>{
+            let which = select.selectedOptions[0].value
+            let match = mountainsArray.filter(m => m.name == which)[0]
+            results.innerHTML = `
+            <h1> ${match.name}</h1>
+            <p> ${match.desc}</p>
+            <p> ELEVATION: ${match.elevation}</p>
+            <img src="images2/${match.img}">
+            `
+        })
+
+        // mountainsArray.forEach(mountain =>{
+        //     console.log(mountain)
+        //     let mount = document.createElement('option')
+        //     mount.innerHTML = mountain
+        //     mount.value = mountain
+        //     select.appendChild(mount)
+        // })
+
+        
+    </script>
+</html>
