@@ -16,6 +16,14 @@ header{
    
 }
 
+header{
+    width: 80%;
+    height: 95vh;
+    border: 1px solid;
+    margin: auto;
+   
+}
+
 header nav{
     width: 95%;
     height: 7%;
@@ -31,6 +39,7 @@ header nav ul{
    list-style: none;
    display: flex;
 }
+
 
 
 header nav ul li{
