@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="main.css">
+<body> 
+
+</body>
+<script>
+
+    const pairs = window.location.search.split("&");
+    const id = pairs[0].split("=")[1];
+    const category_name = pairs[1].split("=")[1];
+
+    async function getDetails(id) {
+        const response = await fetch("http://localhost:8081/api/products/" + id);
+        const data = await response.json();
+        document.body.innerHTML += `
+            <h2> Product Name: ${data.productName} </h2>
+            Unit Price: ${Number(data.unitPrice).toFixed(2)} <br>
+            Units In Stock: ${data.unitsInStock} <br>
+            Supplier: ${data.supplier} <br>
+            Discontinued: ${data.discontinued ? "Yes":"No"} <br>
+            Product ID: ${data.productId} <br>
+            Category Name: ${category_name} <br>
+        `;
+    }
+
+    getDetails(id);
+
+</script>
