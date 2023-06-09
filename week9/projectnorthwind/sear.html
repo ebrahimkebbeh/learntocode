@@ -1,0 +1,10 @@
+<body>
+    <div id=""categories></div>
+</body>
+<script>
+    async function getCategories(){
+        const response = await fetch();
+        const  data = await response.json()
+        data.forEach(displayCategories)
+    }
+</script>

@@ -5,7 +5,8 @@ let job = {
     minSalary : 52000,
     maxSalary : 86000
 };
- 
-// let str = JSON.stringify(job);
 
-console.log(job)
+let filter = ["title", "company"]
+let str = JSON.stringify(job, filter);
+
+console.log(str)
