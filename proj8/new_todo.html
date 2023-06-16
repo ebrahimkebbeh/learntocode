@@ -1,0 +1,91 @@
+<body>
+    <h1>
+        New Todo
+    </h1>
+    <nav>
+        <div>
+            <a href="todos.html">List Todos</a>
+        </div>
+        <div>
+            <a href="new_todo.html">New Todo</a>
+        </div>
+    </nav>
+    <!-- <form method="POST" action="http://localhost:8083/api/todos/"> -->
+        <fieldset>
+            <legend>
+                New Todo
+            </legend>
+            <select id="userList" name="userid">
+                <option value="">Select User for Task</option>
+            </select>
+            <select id="categoryList" name="category">
+                <option value="">Select Category for Task</option>
+            </select>
+            <textarea id="description" name="description" placeholder="Description"></textarea>
+            <input type="date" id="deadline" name="deadline">
+            <select id="priority" name="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+        </fieldset>
+        <!-- <input type="submit" value="Save"> -->
+    <!-- </form> -->
+    <button id="save">Add New</button>
+</body>
+<script>
+    example = {
+        // "id": 3, 
+        "userid": 1,
+        "category": "Financial Task",
+        "description": "Earn $10 for VBucks",
+        "deadline": "2022-12-08",
+        "priority": "High",
+        // "completed": false 
+    }
+    async function saveTodo(){
+        body = new URLSearchParams({
+            "userid": document.getElementById("userList").selectedOptions[0].value,
+            "category": document.getElementById("categoryList").selectedOptions[0].value,
+            "description": document.getElementById("description").value,
+            "deadline": document.getElementById("deadline").value,
+            "priority": document.getElementById("priority").selectedOptions[0].value
+        });
+        const endpoint = "http://localhost:8083/api/todos/";
+        const response = await fetch(endpoint,{method:"POST", body: body, headers:{
+            "Content-Type":	"application/x-www-form-urlencoded"
+        }});
+        const data = await response.json(); 
+        console.log(data);
+        window.location.href = "todos.html"; //back to list
+    }
+    document.getElementById("save").addEventListener("click", saveTodo);
+
+    async function loadUsers() {
+        // const endpoint = "temp/users.json";
+        const endpoint = "http://localhost:8083/api/users";
+        const response = await fetch(endpoint);
+        const data = await response.json(); //parse
+        data.forEach(item => {
+            const option = document.createElement("option");
+            option.innerHTML = item.name;
+            option.value = item.id;
+            userList.appendChild(option);
+        });
+    }
+    loadUsers();
+
+
+    async function loadCategory() {
+        const endpoint = "http://localhost:8083/api/categories";
+        const response = await fetch(endpoint);
+        const data = await response.json(); //parse
+        data.forEach(item => {
+            const option = document.createElement("option");
+            option.innerHTML = item.name;
+            option.value = item.id;
+            categoryList.appendChild(option);
+        });
+    }
+    loadCategory();
+</script>
