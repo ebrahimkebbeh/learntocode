@@ -1,0 +1,52 @@
+<style>
+    body{
+        background: #888;
+    }
+    .title{
+        width: 20vw;
+        height: 20vw;
+        background: silver;
+        display: inline-block;
+        margin: 0 1vw 1vw 0;
+        box-shadow: 0.25vw 0.25vw 1vw 1vw rgb(0,0);
+    }
+</style>
+
+<body>
+    <div id="list"></div>
+    <div id="add" class="title">+</div>
+</body>
+<script>
+    function additem(){
+        const name = "";
+        listData.push({name:name});
+        appendChild(name, listData.length - 1)
+    }
+    add.addEventListener()
+    let listData = [
+        {
+            name: "Apple"
+        },
+        {
+            name: "cherry"
+        },
+        {
+            name: "Banana"
+        }
+    ];
+    function onclickRemove(element){
+        const title = element.parentElement;
+        title.remove();
+        listData.splice(title.id - 1, 1);
+    }
+    function appendTitle(content){
+        const div = document.createElement("div");
+        div.classList.add("title");
+        div.innerHTML = conntent + `<div class="remove" onclick="onclickRemove(this)`
+        list.appendChild(div);
+    }
+    for(let i=0; i < listData.length; i++){
+        appendTitle(listData[i].name)
+    }
+
+</script>
