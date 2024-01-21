@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Flipper</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+
+  <button id="flipbutton">Flip Color</button>
+
+  <script>
+    // Array of colors
+  const colors = ['black', 'red', 'pink', 'yellow']
+    // Get button element
+  const flipbutton = document.getElementById('flipbutton')
+
+    // Function to generate a random color
+   function rand(){
+    const rands = Math.floor(Math.random() * colors.length);
+    return colors[rands]
+
+   }
+
+    // Function to change background color
+   function changeco(){
+    const cool = rand();
+     document.body.style.backgroundColor = cool;
+   }
+
+    // Add click event listener to the button
+   flipbutton.addEventListener('click', changeco)
+  </script>
+
+</body>
+</html>
